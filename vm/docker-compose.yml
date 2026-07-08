@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  jenkins:
+    build:
+      context: .
+      dockerfile: Dockerfile.jenkins
+    container_name: jenkins
+    ports:
+      - "8080:8080"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - ~/.ssh:/var/jenkins_home/.ssh:ro
+    networks:
+      - cicd-net
+  target-vm:
+    build: .
+    container_name: target-vm
+    hostname: target-vm
+    ports:
+      - "2222:22"
+      - "8081:80"
+    networks:
+      - cicd-net
+
+networks:
+  cicd-net:
+    driver: bridge
+
+volumes:
+  jenkins_home:

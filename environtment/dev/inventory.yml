@@ -1,0 +1,7 @@
+all:
+  hosts:
+    target-vm:
+      ansible_host: localhost
+      ansible_port: 2222
+      ansible_user: deploy
+      ansible_ssh_private_key_file: ~/.ssh/id_ed25519

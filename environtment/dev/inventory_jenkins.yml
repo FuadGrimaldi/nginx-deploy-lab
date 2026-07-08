@@ -1,0 +1,7 @@
+all:
+  hosts:
+    target-vm:
+      ansible_host: target-vm
+      ansible_port: 22
+      ansible_user: deploy
+      ansible_ssh_private_key_file: /var/jenkins_home/.ssh/id_ed25519

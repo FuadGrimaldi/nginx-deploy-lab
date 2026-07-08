@@ -1,0 +1,4 @@
+- name: Deploy nginx
+  hosts: target-vm
+  roles:
+    - deploy_nginx
